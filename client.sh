@@ -25,7 +25,7 @@ if [[ 'producer' == $MODE ]]
 then
     while true
     do
-        shuf -n1 /usr/wc/Tweets.csv | kafka-console-producer.sh --broker-list $KAFKA:$PORT --topic wc-tweets
+        shuf -n1 /usr/wc/tweets.csv | kafka-console-producer.sh --broker-list $KAFKA:$PORT --topic wc-tweets
         sleep 15
     done
     exit 0
