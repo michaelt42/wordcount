@@ -6,9 +6,10 @@ ADD tweets.csv /usr/wc/tweets.csv
 
 ENV KAFKA="broker" \
     MODE="" \
+    PATH="${PATH}:/usr/kafka/bin:/usr/wc" \
     PORT="29092"
 
-#CMD ["/bin/bash /usr/wc/client.sh"]
+CMD ["client.sh"]
 
 RUN apt-get -y update && \
     apt-get -y install csvtool default-jre && \
@@ -16,4 +17,5 @@ RUN apt-get -y update && \
     gunzip /usr/kafka.tgz && \
     tar -C /usr -f $T -x > /dev/null && \
     mv -f "/usr/$(tar -tf $T | head -n 1 | sed 's#/.*##')" /usr/kafka && \
-    rm $T
+    rm $T && \
+    chmod 755 /usr/wc/client.sh

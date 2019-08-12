@@ -1,4 +1,4 @@
-PATH="${PATH}:/usr/kafka/bin"
+#!/bin/bash
 if [[ 'consumer' == $MODE ]]
 then
     echo "Execute consumer against ${KAFKA}:${PORT}"
@@ -33,3 +33,4 @@ then
     #done
     exit 0
 fi
+echo "Mode '${MODE}' is not recognized"
