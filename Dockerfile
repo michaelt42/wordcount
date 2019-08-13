@@ -4,10 +4,12 @@ ADD client.sh /usr/wc/client.sh
 ADD https://www.apache.org/dist/kafka/2.3.0/kafka_2.12-2.3.0.tgz /usr/kafka.tgz
 ADD tweets.csv /usr/wc/tweets.csv
 
-ENV KAFKA="broker" \
+ENV BROKER="broker:29092" \
+    COUNT_TOPIC="wc-counts" \
     MODE="" \
     PATH="${PATH}:/usr/kafka/bin:/usr/wc" \
-    PORT="29092"
+    PRODUCER_INTERVAL="15" \
+    TWEET_TOPIC="wc-tweets"
 
 CMD ["client.sh"]
 
