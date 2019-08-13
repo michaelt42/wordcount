@@ -26,7 +26,7 @@ then
     while true
     do
         shuf -n1 /usr/wc/tweets.csv | kafka-console-producer.sh --broker-list "${BROKER}" --topic "${TWEET_TOPIC}"
-        sleep $RODUCER_INTERVAL
+        sleep $PRODUCER_INTERVAL
     done
     exit 0
 fi
