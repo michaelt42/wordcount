@@ -8,7 +8,7 @@ ENV BROKER="broker:29092" \
     COUNT_TOPIC="wc-counts" \
     MODE="" \
     PATH="${PATH}:/usr/kafka/bin:/usr/wc" \
-    PRODUCER_INTERVAL="15" \
+    PRODUCER_INTERVAL="5" \
     TWEET_TOPIC="wc-tweets"
 
 CMD ["client.sh"]
